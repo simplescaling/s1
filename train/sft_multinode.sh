@@ -26,7 +26,7 @@ train/sft.py \
 --model_name=${base_model} \
 --warmup_ratio=0.05 \
 --fsdp="full_shard auto_wrap" \
---fsdp_config="train/scripts/fsdp_config_qwen.json" \
+--fsdp_config="train/fsdp_config_qwen.json" \
 --bf16=True \
 --eval_strategy="steps" \
 --eval_steps=50 \
