@@ -127,9 +127,9 @@ for i, p in enumerate(prompts):
     )
     ignore_str = "Wait"
     max_tokens_thinking_tmp = MAX_TOKENS_THINKING
+    max_tokens_thinking_tmp -= len(o[0].outputs[0].token_ids)
     if max_tokens_thinking_tmp > 0:
         for i in range(NUM_IGNORE): # Num of times to skip stop token
-            max_tokens_thinking_tmp -= len(o[0].outputs[0].token_ids)
             prompt += o[0].outputs[0].text + ignore_str
             sampling_params = SamplingParams(
                 max_tokens=max_tokens_thinking_tmp,
